@@ -11,42 +11,42 @@ class Instructeur extends BaseController
 
     public function overzichtInstructeur()
     {
-        $result = $this->instructeurModel->getInstructeurs();
-        $rows = "";
+        // $result = $this->instructeurModel->getInstructeurs();
+        // $rows = "";
 
-        foreach ($result as $instructeur) {
-            /**
-             * Datum in het juiste formaat gezet
-             */
-            $date = date_create($instructeur->DatumInDienst);
-            $formatted_date = date_format($date, 'd-m-Y');
+        // foreach ($result as $instructeur) {
+        //     /**
+        //      * Datum in het juiste formaat gezet
+        //      */
+        //     $date = date_create($instructeur->DatumInDienst);
+        //     $formatted_date = date_format($date, 'd-m-Y');
 
-            $actiefInactiefHtml = $instructeur->IsActief
-                ? "<a href='/instructeur/maakInactief/$instructeur->Id'><i class='bi bi-hand-thumbs-up'></i></a>"
-                : "<a href='/instructeur/maakActief/$instructeur->Id'><i class='bi bi-bandaid'></i></a>";
+        //     $actiefInactiefHtml = $instructeur->IsActief
+        //         ? "<a href='/instructeur/maakInactief/$instructeur->Id'><i class='bi bi-hand-thumbs-up'></i></a>"
+        //         : "<a href='/instructeur/maakActief/$instructeur->Id'><i class='bi bi-bandaid'></i></a>";
 
-            $rows .= "<tr>
-                        <td>$instructeur->Voornaam</td>
-                        <td>$instructeur->Tussenvoegsel</td>
-                        <td>$instructeur->Achternaam</td>
-                        <td>$instructeur->Mobiel</td>
-                        <td>$formatted_date</td>            
-                        <td>$instructeur->AantalSterren</td>            
-                        <td>
-                            <a href='" . URLROOT . "/instructeur/overzichtVoertuigen/$instructeur->Id'>
-                                <i class='bi bi-car-front'></i>
-                            </a>
-                        </td>
-                        <td>$actiefInactiefHtml</td>         
-                      </tr>";
-        }
+        //     $rows .= "<tr>
+        //                 <td>$instructeur->Voornaam</td>
+        //                 <td>$instructeur->Tussenvoegsel</td>
+        //                 <td>$instructeur->Achternaam</td>
+        //                 <td>$instructeur->Mobiel</td>
+        //                 <td>$formatted_date</td>            
+        //                 <td>$instructeur->AantalSterren</td>            
+        //                 <td>
+        //                     <a href='" . URLROOT . "/instructeur/overzichtVoertuigen/$instructeur->Id'>
+        //                         <i class='bi bi-car-front'></i>
+        //                     </a>
+        //                 </td>
+        //                 <td>$actiefInactiefHtml</td>         
+        //               </tr>";
+        // }
 
-        $data = [
-            'title' => 'Instructeurs in dienst',
-            'rows' => $rows
-        ];
+        // $data = [
+        //     'title' => 'Instructeurs in dienst',
+        //     'rows' => $rows
+        // ];
 
-        $this->view('Instructeur/overzichtInstructeur', $data);
+        // $this->view('Instructeur/overzichtInstructeur', $data);
     }
 
     public function overzichtVoertuigen($Id)
