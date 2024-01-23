@@ -139,14 +139,7 @@ CREATE TABLE IF NOT EXISTS Voertuig
    ,Bouwjaar            DATE                            NOT NULL
    ,Brandstof           VARCHAR(20)                     NOT NULL  
    ,TypeVoertuigId      TINYINT         UNSIGNED        NOT NULL  
-   ,IsActief            BIT                             NOT NULL    DEFAULT 1
-   ,Opmerkingen         VARCHAR(250)                        NULL    DEFAULT NULL
-   ,DatumAangemaakt     DateTime(6)                     NOT NULL
-   ,DatumGewijzigd      DateTime(6)                     NOT NULL
 
-   ,CONSTRAINT      PK_Voertuig_Id   PRIMARY KEY CLUSTERED(Id)
-   ,CONSTRAINT      FK_Voertuig_TypeVoertuigId_TypeVoertuig_Id  FOREIGN KEY (TypeVoertuigId) REFERENCES TypeVoertuig(Id)
-) ENGINE=InnoDB;
 
 -- Step: 07
 -- Goal: Fill table Voertuig with data
